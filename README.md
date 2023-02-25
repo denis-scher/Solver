@@ -11,3 +11,5 @@ Right now it is able to solve problems that include:
 It can't (yet) solve problems that include: 
 * Negative numbers
 * Parenthesis
+
+Includes Main file for testing.
