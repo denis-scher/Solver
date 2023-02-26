@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Solver {
 
-    public ArrayList<Stack> tokenize (String problem){
+    public ArrayList<Stack> solve (String problem){
         ArrayList<Stack> arrL = new ArrayList<>();
         Stack<Double> values =new Stack<>();
         Stack<String> operators = new Stack<>();
