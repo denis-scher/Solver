@@ -9,8 +9,9 @@ public class Main {
         //Scanner myObj = new Scanner(System.in);
         //System.out.println("Please Enter a simple math problem");
 
-
-        String problem = "13*5.16+56.2+3/2.45";
+        double x = 13*-5.16+60-42*15;
+        System.out.println(x);
+        String problem = "13*-5.16+60-42*15"; //TODO:check if working properly.
 
         Solver solver = new Solver();
         ArrayList<Stack> decomp2 = solver.solve(problem);

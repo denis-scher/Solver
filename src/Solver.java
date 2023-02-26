@@ -20,7 +20,11 @@ public class Solver {
                 }
                 continue;
             }
-            values.push(Double.parseDouble(problem.substring(i+1,j+1)));
+            String lastChar = problem.substring(i,i+1);
+            String beforeChar = problem.substring(i+1,i+2);
+            if (((lastChar.equals("*") || lastChar.equals("/")) && beforeChar.equals("-")) == false){
+                values.push(Double.parseDouble(problem.substring(i+1,j+1)));
+            }
             switch (String.valueOf(problem.charAt(i))){
                 case "*":
                 case "/":
@@ -29,7 +33,33 @@ public class Solver {
                     j=i;
                     break;
                 case "+":
+                    if (operators.peek().equals("*") || operators.peek().equals("/")){
+                        String operator = operators.pop();
+                        double valA = values.pop();
+                        double valB = values.pop();
+                        double valC;
+                        if (operator.equals("*")) {
+                            valC = valA * valB;
+                        }else{
+                            valC = valA / valB;
+                        }
+                        values.push(valC);
+                        operators.push(problem.substring(i,i+1));
+                        i--;
+                        j=i;
+                        break;
+                    }
                 case "-":
+                    String nextChar = String.valueOf(problem.charAt(i-1));
+                    if (i != 0 && (nextChar.equals("*") || nextChar.equals("/"))){
+                        Double x = values.pop();
+                        x = x * -1;
+                        values.push(x);
+                        i--;
+                        j=i;
+                        break;
+
+                    }
                     if (operators.peek().equals("*") || operators.peek().equals("/")){
                         String operator = operators.pop();
                         double valA = values.pop();
