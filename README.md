@@ -7,9 +7,9 @@ Right now it is able to solve problems that include:
 * Multiplication
 * Division
 * Decimal Point
+* Negative number multiplication
 
 It can't (yet) solve problems that include: 
-* Negative numbers
 * Parenthesis
 
 Includes Main file for testing.
